@@ -1,4 +1,4 @@
-module github.com/librespeed/speedtest
+module github.com/xiaoxinpro/speedtest-go-zh
 
 go 1.16
 

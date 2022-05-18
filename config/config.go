@@ -45,10 +45,11 @@ func init() {
 	viper.SetDefault("enable_cors", false)
 	viper.SetDefault("statistics_password", "PASSWORD")
 	viper.SetDefault("redact_ip_addresses", false)
-	viper.SetDefault("database_type", "postgresql")
+	viper.SetDefault("database_type", "bolt")
 	viper.SetDefault("database_hostname", "localhost")
 	viper.SetDefault("database_name", "speedtest")
 	viper.SetDefault("database_username", "postgres")
+	viper.SetDefault("database_file", "speedtest.db")
 	viper.SetDefault("enable_tls", false)
 	viper.SetDefault("enable_http2", false)
 

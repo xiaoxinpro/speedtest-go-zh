@@ -1,13 +1,13 @@
 package database
 
 import (
-	"github.com/librespeed/speedtest/config"
-	"github.com/librespeed/speedtest/database/bolt"
-	"github.com/librespeed/speedtest/database/memory"
-	"github.com/librespeed/speedtest/database/mysql"
-	"github.com/librespeed/speedtest/database/none"
-	"github.com/librespeed/speedtest/database/postgresql"
-	"github.com/librespeed/speedtest/database/schema"
+	"github.com/xiaoxinpro/speedtest-go-zh/config"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/bolt"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/memory"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/mysql"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/none"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/postgresql"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/schema"
 
 	log "github.com/sirupsen/logrus"
 )

@@ -1,4 +1,4 @@
-![LibreSpeed Logo](https://github.com/librespeed/speedtest-go/blob/master/.logo/logo3.png?raw=true)
+![LibreSpeed Logo](https://github.com/xiaoxinpro/speedtest-go-zh/blob/master/.logo/logo3.png?raw=true)
 
 # LibreSpeed
 
@@ -49,7 +49,7 @@ manually, you can install newer version of Go into your `GOPATH`:
 1. Clone this repository:
 
     ```
-    $ git clone github.com/librespeed/speedtest-go
+    $ git clone github.com/xiaoxinpro/speedtest-go-zh
     ```
 
 2. Build

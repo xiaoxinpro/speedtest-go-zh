@@ -1,7 +1,7 @@
 package none
 
 import (
-	"github.com/librespeed/speedtest/database/schema"
+	"github.com/xiaoxinpro/speedtest-go-zh/database/schema"
 )
 
 type None struct{}

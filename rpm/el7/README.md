@@ -1,7 +1,7 @@
 # librespeedgo-rpm
 
 Librespeedtest Go version package (tested for el7)
-upstream: https://github.com/librespeed/speedtest-go
+upstream: https://github.com/xiaoxinpro/speedtest-go-zh
 
 custom rpmmacro vars:
 * hk_version - define version
