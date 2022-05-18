@@ -27,7 +27,7 @@ database_username=""
 database_password=""
 
 # if you use `bolt` as database, set database_file to database file location
-database_file="speedtest.db"
+database_file="./config/speedtest.db"
 
 # TLS and HTTP/2 settings. TLS is required for HTTP/2
 enable_tls=false

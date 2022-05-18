@@ -13,8 +13,10 @@ RUN apk add ca-certificates
 WORKDIR /app
 COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/speedtest .
 COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/web/assets ./assets
-COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/settings.toml .
+COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/settings.toml ./config/settings.toml
 
 EXPOSE 8989
 
-CMD ["./speedtest"]
+VOLUME ["/app/config"]
+
+CMD ["./speedtest -c ./config/settings.toml"]
