@@ -2,8 +2,8 @@ FROM golang:alpine AS build_base
 #ENV GOARCH arm64
 #ENV GOARCH amd64
 RUN apk add --no-cache git gcc ca-certificates libc-dev \
-&& mkdir -p /go/src/github.com/librespeed/ \
-&& cd /go/src/github.com/librespeed/ \
+&& mkdir -p /go/src/github.com/xiaoxinpro/ \
+&& cd /go/src/github.com/xiaoxinpro/ \
 && git clone https://github.com/xiaoxinpro/speedtest-go-zh.git
 WORKDIR /go/src/github.com/xiaoxinpro/speedtest-go-zh
 RUN go get ./ && go build -ldflags "-w -s" -trimpath -o speedtest main.go
