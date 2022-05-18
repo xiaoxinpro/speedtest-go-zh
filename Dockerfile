@@ -9,11 +9,14 @@ WORKDIR /go/src/github.com/xiaoxinpro/speedtest-go-zh
 RUN go get ./ && go build -ldflags "-w -s" -trimpath -o speedtest main.go
 
 FROM alpine:3.15
-RUN apk add ca-certificates
 WORKDIR /app
 COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/speedtest .
 COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/web/assets ./assets
-COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/settings.toml ./config/settings.toml
+COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/settings.toml .
+RUN apk add ca-certificates \
+&& mkdir -p ./config \
+&& mv settings.toml ./config/settings.toml \
+&& chmod 777 -R ./config
 
 EXPOSE 8989
 
