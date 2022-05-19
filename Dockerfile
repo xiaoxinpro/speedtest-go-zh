@@ -14,8 +14,8 @@ COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/speedtest .
 COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/web/assets ./assets
 COPY --from=build_base /go/src/github.com/xiaoxinpro/speedtest-go-zh/settings.toml .
 RUN apk add ca-certificates \
-&& mkdir -p ./config \
-&& mv settings.toml ./config/settings.toml \
+&& mkdir ./config \
+&& cp ./settings.toml ./config/settings.toml \
 && chmod 777 -R ./config
 
 EXPOSE 8989
