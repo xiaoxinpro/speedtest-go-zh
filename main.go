@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"io"
 	"os"
 	_ "time/tzdata"
@@ -57,7 +56,7 @@ func PathExists(path string) (bool,error) {
 func CopyFile(srcFileName string, dstFileName string) (written int64, err error) {
 	srcFile, err := os.Open(srcFileName)
 	if err != nil {
-		fmt.Printf("open file err = %v\n", err)
+		log.Warnf("open file err = %v\n", err)
 		return
 	}
 	defer srcFile.Close()
@@ -65,7 +64,7 @@ func CopyFile(srcFileName string, dstFileName string) (written int64, err error)
 	//open dstFileName
 	dstFile, err := os.OpenFile(dstFileName, os.O_WRONLY | os.O_CREATE, 0755)
 	if err != nil {
-		fmt.Printf("open file err = %v\n", err)
+		log.Warnf("open file err = %v\n", err)
 		return
 	}
 	defer dstFile.Close()
