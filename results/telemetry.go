@@ -29,7 +29,7 @@ import (
 const (
 	watermark = "网络速度测试"
 
-	labelMS       = " ms"
+	labelMS       = "ms"
 	labelMbps     = "Mbit/s"
 	labelPing     = "Ping"
 	labelJitter   = "偏差"
@@ -340,7 +340,7 @@ func DrawPNG(w http.ResponseWriter, r *http.Request) {
 	drawer.DrawString(watermark)
 
 	// timestamp
-	ts := record.Timestamp.Format("2006-01-02 15:04:05")
+	ts := record.Timestamp.Format("2006-01-02_15:04:05")
 	p = drawer.MeasureString(ts)
 	drawer.Dot = freetype.Pt(8, canvasHeight-bottomOffset)
 	drawer.DrawString(ts)
@@ -360,9 +360,9 @@ func DrawPNG(w http.ResponseWriter, r *http.Request) {
 		if strings.Contains(str[1], "(") {
 			str = strings.SplitN(str[1], "(", 2)
 		}
-		ispString = str[0]
+		ispString = strings.TrimSpace(str[0])
 	}
-	drawer.DrawString("ISP: " + ispString)
+	drawer.DrawString("IP:" + ispString)
 
 	w.Header().Set("Content-Disposition", "inline; filename="+uuid+".png")
 	w.Header().Set("Content-Type", "image/png")
