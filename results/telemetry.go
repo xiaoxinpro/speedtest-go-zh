@@ -37,10 +37,10 @@ const (
 	labelUpload   = "上行"
 )
 
-//go:embed fonts/NotoSansDisplay-Medium.ttf
+//go:embed fonts/SourceHanSansCN-Medium.ttf
 var fontMediumBytes []byte
 
-//go:embed fonts/NotoSansDisplay-Light.ttf
+//go:embed fonts/SourceHanSansCN-Light.ttf
 var fontLightBytes []byte
 
 var (
@@ -91,13 +91,13 @@ func Initialize(c *config.Config) {
 	// https://github.com/golang/freetype/issues/8
 	fLight, err := freetype.ParseFont(fontLightBytes)
 	if err != nil {
-		log.Fatalf("Error parsing NotoSansDisplay-Light font: %s", err)
+		log.Fatalf("Error parsing SourceHanSansCN-Light font: %s", err)
 	}
 	fontLight = fLight
 
 	fMedium, err := freetype.ParseFont(fontMediumBytes)
 	if err != nil {
-		log.Fatalf("Error parsing NotoSansDisplay-Medium font: %s", err)
+		log.Fatalf("Error parsing SourceHanSansCN-Medium font: %s", err)
 	}
 	fontBold = fMedium
 
