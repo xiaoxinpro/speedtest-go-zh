@@ -32,9 +32,9 @@ const (
 	labelMS       = " ms"
 	labelMbps     = "Mbit/s"
 	labelPing     = "Ping"
-	labelJitter   = "Jitter"
-	labelDownload = "Download"
-	labelUpload   = "Upload"
+	labelJitter   = "偏差"
+	labelDownload = "下行"
+	labelUpload   = "上行"
 )
 
 //go:embed fonts/NotoSansDisplay-Medium.ttf
