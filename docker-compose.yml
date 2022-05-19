@@ -1,9 +1,9 @@
 version: "3"
 services:
   speedtest-go-zh:
-    image: "registry.cn-shanghai.aliyuncs.com/chishin/speedtest-go-zh:dev"
+    image: "chishin/speedtest-go-zh:latest"
     restart: always
     ports:
-      - 80:8989
+      - 8989:8989
     volumes:
       - ./config:/app/config
