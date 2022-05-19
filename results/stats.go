@@ -115,7 +115,7 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 const htmlTemplate = `<!DOCTYPE html>
 <html>
 <head>
-<title>LibreSpeed - Stats</title>
+<title>网络速度测试 - 后台</title>
 <style type="text/css">
 	html,body{
 		margin:0;
@@ -160,38 +160,38 @@ const htmlTemplate = `<!DOCTYPE html>
 </style>
 </head>
 <body>
-<h1>LibreSpeed - Stats</h1>
+<h1>网络速度测试 - 后台</h1>
 {{ if .NoPassword }}
-		Please set statistics_password in settings.toml to enable access.
+		请在配置文件中修改statistics_password登录密码。
 {{ else if .LoggedIn }}
-	<form action="stats" method="GET"><input type="hidden" name="op" value="logout" /><input type="submit" value="Logout" /></form>
+	<form action="stats" method="GET"><input type="hidden" name="op" value="logout" /><input type="submit" value="退出" /></form>
 	<form action="stats" method="GET">
-		<h3>Search test results</h6>
+		<h3>搜索测试结果</h6>
 		<input type="hidden" name="op" value="id" />
 		<input type="text" name="id" id="id" placeholder="Test ID" value=""/>
-		<input type="submit" value="Find" />
-		<input type="submit" onclick="document.getElementById('id').value='L100'" value="Show last 100 tests" />
+		<input type="submit" value="搜索" />
+		<input type="submit" onclick="document.getElementById('id').value='L100'" value="显示最新100个测试结果" />
 	</form>
 
 	{{ range $i, $v := .Data }}
 	<table>
-		<tr><th>Test ID</th><td>{{ $v.UUID }}</td></tr>
-		<tr><th>Date and time</th><td>{{ $v.Timestamp }}</td></tr>
-		<tr><th>IP and ISP Info</th><td>{{ $v.IPAddress }}<br/>{{ $v.ISPInfo }}</td></tr>
-		<tr><th>User agent and locale</th><td>{{ $v.UserAgent }}<br/>{{ $v.Language }}</td></tr>
-		<tr><th>Download speed</th><td>{{ $v.Download }}</td></tr>
-		<tr><th>Upload speed</th><td>{{ $v.Upload }}</td></tr>
+		<tr><th>测试 ID</th><td>{{ $v.UUID }}</td></tr>
+		<tr><th>时间</th><td>{{ $v.Timestamp }}</td></tr>
+		<tr><th>IP 和 ISP 信息</th><td>{{ $v.IPAddress }}<br/>{{ $v.ISPInfo }}</td></tr>
+		<tr><th>用户信息</th><td>{{ $v.UserAgent }}<br/>{{ $v.Language }}</td></tr>
+		<tr><th>下行速度</th><td>{{ $v.Download }}</td></tr>
+		<tr><th>上行速度</th><td>{{ $v.Upload }}</td></tr>
 		<tr><th>Ping</th><td>{{ $v.Ping }}</td></tr>
-		<tr><th>Jitter</th><td>{{ $v.Jitter }}</td></tr>
-		<tr><th>Log</th><td>{{ $v.Log }}</td></tr>
-		<tr><th>Extra info</th><td>{{ $v.Extra }}</td></tr>
+		<tr><th>偏差</th><td>{{ $v.Jitter }}</td></tr>
+		<tr><th>日志</th><td>{{ $v.Log }}</td></tr>
+		<tr><th>其他</th><td>{{ $v.Extra }}</td></tr>
 	</table>
 	{{ end }}
 {{ else }}
 	<form action="stats?op=login" method="POST">
-		<h3>Login</h3>
-		<input type="password" name="password" placeholder="Password" value=""/>
-		<input type="submit" value="Login" />
+		<h3>登录</h3>
+		<input type="password" name="password" placeholder="请输入密码" value=""/>
+		<input type="submit" value="登录" />
 	</form>
 {{ end }}
 </body>
