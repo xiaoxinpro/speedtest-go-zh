@@ -177,12 +177,12 @@ const htmlTemplate = `<!DOCTYPE html>
 	<table>
 		<tr><th>测试 ID</th><td>{{ $v.UUID }}</td></tr>
 		<tr><th>时间</th><td>{{ $v.Timestamp }}</td></tr>
-		<tr><th>IP 和 ISP 信息</th><td>{{ $v.IPAddress }}<br/>{{ $v.ISPInfo }}</td></tr>
-		<tr><th>用户信息</th><td>{{ $v.UserAgent }}<br/>{{ $v.Language }}</td></tr>
-		<tr><th>下行速度</th><td>{{ $v.Download }}</td></tr>
-		<tr><th>上行速度</th><td>{{ $v.Upload }}</td></tr>
-		<tr><th>Ping</th><td>{{ $v.Ping }}</td></tr>
-		<tr><th>偏差</th><td>{{ $v.Jitter }}</td></tr>
+		<tr><th>数据</th><td>{{ $v.IPAddress }}<br/>{{ $v.ISPInfo }}</td></tr>
+		<tr><th>浏览器</th><td>{{ $v.UserAgent }}<br/>{{ $v.Language }}</td></tr>
+		<tr><th>下行速度</th><td>{{ $v.Download }} Mbps</td></tr>
+		<tr><th>上行速度</th><td>{{ $v.Upload }} Mbps</td></tr>
+		<tr><th>Ping</th><td>{{ $v.Ping }} ms</td></tr>
+		<tr><th>偏差</th><td>{{ $v.Jitter }} ms</td></tr>
 		<tr><th>日志</th><td>{{ $v.Log }}</td></tr>
 		<tr><th>其他</th><td>{{ $v.Extra }}</td></tr>
 	</table>
