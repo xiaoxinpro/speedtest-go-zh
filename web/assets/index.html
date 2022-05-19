@@ -159,7 +159,7 @@
 			color:#FFFFFF;
 		}
 		#startStopBtn:before{
-			content:"Start";
+			content:"开始测试";
 		}
 		#startStopBtn.running:before{
 			content:"Abort";
@@ -273,13 +273,13 @@
 			}
 		}
 	</style>
-	<title>LibreSpeed Example</title>
+	<title>网络速度测试</title>
 </head>
 <body>
-<h1>LibreSpeed Example</h1>
+<h1>网络速度测试</h1>
 <div id="testWrapper">
 	<div id="startStopBtn" onclick="startStop()"></div><br/>
-	<a class="privacy" href="#" onclick="I('privacyPolicy').style.display=''">Privacy</a>
+	<a class="privacy" href="#" onclick="I('privacyPolicy').style.display=''">隐私条款</a>
 	<div id="test">
 		<div class="testGroup">
 			<div class="testArea2">
@@ -288,20 +288,20 @@
 				<div class="unit">ms</div>
 			</div>
 			<div class="testArea2">
-				<div class="testName">Jitter</div>
+				<div class="testName">偏差</div>
 				<div id="jitText" class="meterText" style="color:#AA6060"></div>
 				<div class="unit">ms</div>
 			</div>
 		</div>
 		<div class="testGroup">
 			<div class="testArea">
-				<div class="testName">Download</div>
+				<div class="testName">下行</div>
 				<canvas id="dlMeter" class="meter"></canvas>
 				<div id="dlText" class="meterText"></div>
 				<div class="unit">Mbps</div>
 			</div>
 			<div class="testArea">
-				<div class="testName">Upload</div>
+				<div class="testName">上行</div>
 				<canvas id="ulMeter" class="meter"></canvas>
 				<div id="ulText" class="meterText"></div>
 				<div class="unit">Mbps</div>
@@ -311,54 +311,51 @@
 			<span id="ip"></span>
 		</div>
 		<div id="shareArea" style="display:none">
-			<h3>Share results</h3>
-			<p>Test ID: <span id="testId"></span></p>
+			<h3>分享结果</h3>
+			<p>测试ID: <span id="testId"></span></p>
 			<input type="text" value="" id="resultsURL" readonly="readonly" onclick="this.select();this.focus();this.select();document.execCommand('copy');alert('Link copied')"/>
 			<img src="" id="resultsImg" />
 		</div>
 	</div>
-	<a href="https://github.com/xiaoxinpro/speedtest-go-zh">Source code</a>
+	<a href="https://github.com/xiaoxinpro/speedtest-go-zh">项目源码</a>
 </div>
 <div id="privacyPolicy" style="display:none">
-	<h2>Privacy Policy</h2>
-	<p>This HTML5 Speedtest server is configured with telemetry enabled.</p>
-	<h4>What data we collect</h4>
+	<h2>隐私条款</h2>
+	<p>这是一个基于HTML5的测试工具。</p>
+	<h4>我们收集什么数据</h4>
 	<p>
-		At the end of the test, the following data is collected and stored:
-	<ul>
-		<li>Test ID</li>
-		<li>Time of testing</li>
-		<li>Test results (download and upload speed, ping and jitter)</li>
-		<li>IP address</li>
-		<li>ISP information</li>
-		<li>Approximate location (inferred from IP address, not GPS)</li>
-		<li>User agent and browser locale</li>
-		<li>Test log (contains no personal information)</li>
+		测试结束时，将收集并存储以下数据：
+	</p><ul>
+		<li>测试ID</li>
+		<li>测试时间</li>
+		<li>测试结果</li>
+		<li>IP地址</li>
+		<li>ISP信息</li>
+		<li>大概位置（根据IP地址而非GPS推断）</li>
+		<li>用户代理和浏览器区域设置</li>
+		<li>测试日志（不包含任何个人信息）</li>
 	</ul>
-	</p>
-	<h4>How we use the data</h4>
+	<p></p>
+	<h4>我们如何使用数据</h4>
 	<p>
-		Data collected through this service is used to:
-	<ul>
-		<li>Allow sharing of test results (sharable image for forums, etc.)</li>
-		<li>To improve the service offered to you (for instance, to detect problems on our side)</li>
+		通过此服务收集的数据用于：
+	</p><ul>
+		<li>允许共享测试结果</li>
+		<li>改善向您提供的服务（例如：测速工具存在BUG）</li>
 	</ul>
-	No personal information is disclosed to third parties.
-	</p>
-	<h4>Your consent</h4>
+	没有将个人信息透露给第三方。
+	<p></p>
+	<h4>如何同意</h4>
 	<p>
-		By starting the test, you consent to the terms of this privacy policy.
+		一旦开始测试，即表示您同意本隐私政策的条款。
 	</p>
-	<h4>Data removal</h4>
+	<h4>资料移除</h4>
 	<p>
-		If you want to have your information deleted, you need to provide either the ID of the test or your IP address. This is the only way to identify your data, without this information we won't be able to comply with your request.<br/><br/>
-		Contact this email address for all deletion requests: <a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.
+		如果要删除信息，则需要提供测试的ID或IP地址。 这是识别您的数据的唯一方法，没有这些信息，我们将无法满足您的要求。<br><br>
+		请与该电子邮件地址联系以获取所有删除请求：<a href="mailto:admin@github.com">admin@github.com</a>.
 	</p>
-	<br/><br/>
-	<div class="closePrivacyPolicy">
-		<a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">Close</a>
-	</div>
-	<br/>
+	<br><br>
+	<a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">关闭</a><br>
 </div>
 <script type="text/javascript">setTimeout(function(){initUI()},100);</script>
 </body>

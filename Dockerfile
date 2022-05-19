@@ -22,4 +22,4 @@ EXPOSE 8989
 
 VOLUME ["/app/config"]
 
-CMD ["./speedtest"]
+CMD ["./speedtest c ./config/settings.toml"]
