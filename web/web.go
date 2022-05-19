@@ -228,21 +228,21 @@ func getIP(w http.ResponseWriter, r *http.Request) {
 	isSpecialIP := true
 	switch {
 	case clientIP == "::1":
-		ret.ProcessedString = clientIP + " - localhost IPv6 access"
+		ret.ProcessedString = clientIP + " - 本地 IPv6 地址"
 	case strings.HasPrefix(clientIP, "fe80:"):
-		ret.ProcessedString = clientIP + " - link-local IPv6 access"
+		ret.ProcessedString = clientIP + " - 本地子网 IPv6 地址"
 	case strings.HasPrefix(clientIP, "127."):
-		ret.ProcessedString = clientIP + " - localhost IPv4 access"
+		ret.ProcessedString = clientIP + " - 本地 IPv4 地址"
 	case strings.HasPrefix(clientIP, "10."):
-		ret.ProcessedString = clientIP + " - private IPv4 access"
+		ret.ProcessedString = clientIP + " - 局域网 IPv4 地址"
 	case regexp.MustCompile(`^172\.(1[6-9]|2\d|3[01])\.`).MatchString(clientIP):
-		ret.ProcessedString = clientIP + " - private IPv4 access"
+		ret.ProcessedString = clientIP + " - 局域网 IPv4 地址"
 	case strings.HasPrefix(clientIP, "192.168"):
-		ret.ProcessedString = clientIP + " - private IPv4 access"
+		ret.ProcessedString = clientIP + " - 局域网 IPv4 地址"
 	case strings.HasPrefix(clientIP, "169.254"):
-		ret.ProcessedString = clientIP + " - link-local IPv4 access"
+		ret.ProcessedString = clientIP + " - 本地子网 IPv4 地址"
 	case regexp.MustCompile(`^100\.([6-9][0-9]|1[0-2][0-7])\.`).MatchString(clientIP):
-		ret.ProcessedString = clientIP + " - CGNAT IPv4 access"
+		ret.ProcessedString = clientIP + " - CGNAT IPv4 地址"
 	default:
 		isSpecialIP = false
 	}
