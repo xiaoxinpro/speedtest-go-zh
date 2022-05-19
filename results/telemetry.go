@@ -27,7 +27,7 @@ import (
 )
 
 const (
-	watermark = "LibreSpeed"
+	watermark = "网络速度测试"
 
 	labelMS       = " ms"
 	labelMbps     = "Mbit/s"
