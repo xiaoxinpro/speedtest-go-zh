@@ -38,3 +38,10 @@ jobs:
           echo "BUILD_IMAGE=$BUILD_IMAGE"
           echo "BUILD_PLATFORM=$BUILD_PLATFORM"
           echo "BUILD_VERSION=$BUILD_VERSION"
+      - name: 构建Docker镜像
+        run: |
+          docker buildx create --name "Buildx-SpeedTest" || echo
+          docker buildx use "Buildx-SpeedTest"
+          docker buildx build $BUILD_TAG --platform $BUILD_PLATFORM . --push
+          docker buildx rm "Buildx-SpeedTest"
+          echo "Multiarch build Complete"
