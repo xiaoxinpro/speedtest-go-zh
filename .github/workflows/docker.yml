@@ -17,8 +17,8 @@ jobs:
           echo "BUILD_IMAGE=chishin/speedtest-go-zh" >> $GITHUB_ENV
           echo "BUILD_PLATFORM=linux/amd64,linux/386,linux/arm64,linux/arm/7" >> $GITHUB_ENV
           echo "BUILD_VERSION=${{ github.event.release.tag_name}}" >> $GITHUB_ENV
-      - name: 添加BuildTag环境变量（push）
-        if: ${{ github.event_name == 'push'}}
+      - name: 添加BuildTag环境变量（push或手动触发）
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
         run: |
           echo "BUILD_TAG=-t ${BUILD_IMAGE}:dev" >> $GITHUB_ENV
       - name: 添加BuildTag环境变量（release）
